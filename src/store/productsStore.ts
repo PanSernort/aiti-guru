@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist, createJSONStorage } from 'zustand/middleware';
 import { getProducts } from '../api/products';
 import type { Product, SortField, SortOrder } from '../types';
 
@@ -23,7 +24,9 @@ interface ProductsState {
   addProductLocal: (product: Product) => void;
 }
 
-export const useProductsStore = create<ProductsState>((set, get) => ({
+export const useProductsStore = create<ProductsState>()(
+  persist(
+    (set, get) => ({
   products: [],
   total: 0,
   isLoading: false,
@@ -103,4 +106,14 @@ export const useProductsStore = create<ProductsState>((set, get) => ({
       total: state.total + 1,
     }));
   },
-}));
+    }),
+    {
+      name: 'products-sort',
+      storage: createJSONStorage(() => sessionStorage),
+      partialize: (state) => ({
+        sortBy: state.sortBy,
+        sortOrder: state.sortOrder,
+      } as unknown as ProductsState),
+    }
+  )
+);

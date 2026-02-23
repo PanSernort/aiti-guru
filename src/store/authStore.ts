@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import axios from 'axios';
 import { login as loginApi } from '../api/auth';
 import type { LoginRequest } from '../types';
 
@@ -33,11 +34,9 @@ export const useAuthStore = create<AuthState>((set) => ({
         username: response.username,
       });
     } catch (error: unknown) {
-      const message =
-        error instanceof Error && 'response' in error
-          ? (error as { response?: { data?: { message?: string } } }).response
-              ?.data?.message || 'Ошибка авторизации'
-          : 'Ошибка соединения с сервером';
+      const message = axios.isAxiosError(error)
+        ? error.response?.data?.message || 'Ошибка авторизации'
+        : 'Ошибка соединения с сервером';
 
       set({ isLoading: false, error: message });
       throw error;

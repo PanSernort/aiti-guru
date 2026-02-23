@@ -1,5 +1,4 @@
-import { useState, type FormEvent } from 'react';
-import { X } from 'lucide-react';
+import { useEffect, useCallback, useState, type FormEvent } from 'react';
 import toast from 'react-hot-toast';
 import { useProductsStore } from '../../store/productsStore';
 import type { Product } from '../../types';
@@ -16,6 +15,15 @@ export const AddProductModal: React.FC<AddProductModalProps> = ({ onClose }) => 
   const [brand, setBrand] = useState('');
   const [sku, setSku] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Escape') onClose();
+  }, [onClose]);
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [handleKeyDown]);
 
   const validate = (): boolean => {
     const newErrors: Record<string, string> = {};
@@ -38,7 +46,7 @@ export const AddProductModal: React.FC<AddProductModalProps> = ({ onClose }) => 
     if (!validate()) return;
 
     const newProduct: Product = {
-      id: Date.now(),
+      id: -Date.now(),
       title: title.trim(),
       price: Number(price),
       brand: brand.trim(),
@@ -73,8 +81,17 @@ export const AddProductModal: React.FC<AddProductModalProps> = ({ onClose }) => 
   };
 
   return (
-    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4">
-      <div className="bg-white rounded-2xl w-full max-w-md p-6 shadow-xl">
+    <div
+      className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 px-4"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Добавить товар"
+    >
+      <div
+        className="bg-white rounded-2xl w-full max-w-md p-6 shadow-xl"
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-lg font-semibold text-gray-900">
             Добавить товар
@@ -83,7 +100,7 @@ export const AddProductModal: React.FC<AddProductModalProps> = ({ onClose }) => 
             onClick={onClose}
             className="text-gray-400 hover:text-gray-600 transition-colors"
           >
-            <X size={20} />
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 5L15 15M15 5L5 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
           </button>
         </div>
 

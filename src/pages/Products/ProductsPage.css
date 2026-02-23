@@ -1,0 +1,611 @@
+/* ═══════════════════════════════════════
+   Products Page — EXACT Figma values
+   ═══════════════════════════════════════ */
+
+/* ── Page ── */
+.pp-page {
+  min-height: 100vh;
+  background: #f6f6f6;
+}
+
+.pp-body {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px 0;
+  max-width: 1920px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* ── Navigation bar ── */
+.pp-navbar {
+  display: flex;
+  height: 105px;
+  padding: 0 30px;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.pp-navbar-title {
+  font-family: "Cairo", "Noto Sans", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #202020;
+  line-height: normal;
+  flex-shrink: 0;
+}
+
+.pp-navbar-menu {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pp-search {
+  display: flex;
+  width: 1023px;
+  max-width: 100%;
+  padding: 12px 20px;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #F3F3F3;
+}
+
+.pp-search-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.pp-search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #212121;
+  background: transparent;
+  padding: 0;
+  min-width: 0;
+}
+
+.pp-search-input::placeholder {
+  color: #999;
+}
+
+/* ── Content card ── */
+.pp-content {
+  width: 100%;
+}
+
+.pp-card {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+}
+
+/* ── Card header ── */
+.pp-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pp-card-title {
+  font-family: "Cairo", "Noto Sans", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+  color: #333;
+  margin: 0;
+}
+
+.pp-card-actions {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.pp-refresh-btn {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  border: 1px solid #ECECEB;
+  background: #FFF;
+  cursor: pointer;
+}
+
+.pp-refresh-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.pp-refresh-btn:hover {
+  background: #f6f6f6;
+}
+
+.pp-add-btn {
+  display: flex;
+  min-height: 42px;
+  padding: 10px 20px;
+  align-items: center;
+  gap: 15px;
+  border-radius: 6px;
+  background: #242EDB;
+  border: none;
+  color: #EBF3EA;
+  font-family: "Cairo", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: normal;
+  cursor: pointer;
+}
+
+.pp-add-btn:hover {
+  opacity: 0.9;
+}
+
+.pp-add-btn svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+/* ── Progress bar ── */
+.pp-progress-wrap {
+  width: 100%;
+  height: 3px;
+  background: #ececeb;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: -30px;
+}
+
+.pp-progress-bar {
+  height: 100%;
+  background: #4f56d3;
+  border-radius: 2px;
+  animation: pp-progress 1.5s ease-in-out infinite;
+}
+
+@keyframes pp-progress {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 70%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* ── Table ── */
+.pp-table-wrap {
+  --pp-gap-col: clamp(100px, 17vw, 217px);
+  --pp-gap-cell: clamp(60px, 10vw, 132px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+/* Header row */
+.pp-table-header {
+  display: flex;
+  gap: var(--pp-gap-col);
+  height: 73px;
+  padding: 0 18px;
+  align-items: center;
+  align-self: stretch;
+}
+
+.pp-table-header .pp-col-product {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  width: 278px;
+  flex-shrink: 0;
+}
+
+.pp-table-header .pp-col-details {
+  display: flex;
+  gap: var(--pp-gap-cell);
+  flex: 1;
+  align-items: center;
+  min-width: 0;
+}
+
+/* Data rows */
+.pp-row-inner {
+  display: flex;
+  gap: var(--pp-gap-col);
+  height: 71px;
+  padding: 0 18px;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.pp-row-inner .pp-col-product {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  width: 278px;
+  flex-shrink: 0;
+}
+
+.pp-row-inner .pp-col-details {
+  display: flex;
+  gap: var(--pp-gap-cell);
+  flex: 1;
+  align-items: center;
+  min-width: 0;
+}
+
+/* Column labels */
+.pp-col-label {
+  color: #B2B3B9;
+  font-family: "Cairo", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: center;
+}
+
+/* Совпадают с ячейками — заголовки строго над контентом */
+.pp-col-label.pp-col-vendor { flex: 1; min-width: 100px; }
+.pp-col-label.pp-col-sku { flex: 1; min-width: 120px; }
+.pp-col-label.pp-col-rating { flex: 1; min-width: 60px; }
+.pp-col-label.pp-col-price { flex: 1; min-width: 80px; text-align: right; }
+.pp-col-label.pp-col-actions-spacer { width: 100px; flex-shrink: 0; visibility: hidden; }
+
+.pp-sort-arrow {
+  margin-left: 4px;
+  font-size: 12px;
+}
+
+/* ── Checkbox ── */
+.pp-checkbox-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.pp-checkbox {
+  width: 22px;
+  height: 22px;
+  border: 1px solid #b2b3b9;
+  border-radius: 4px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.pp-checkbox--checked {
+  background: #4f56d3;
+  border-color: #4f56d3;
+}
+
+.pp-checkbox--checked::after {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 10px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) translateY(-1px);
+}
+
+/* ── Product row ── */
+.pp-row {
+  border-top: 1px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+}
+
+.pp-row + .pp-row {
+  border-top: none;
+}
+
+/* Полоска поверх контента — не влияет на layout, контент не скачет */
+.pp-row-stripe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #3c538e;
+  pointer-events: none;
+}
+
+.pp-product-photo {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid #ececeb;
+  background: #c4c4c4;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.pp-product-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pp-product-name {
+  display: flex;
+  width: 210px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.pp-product-name p {
+  margin: 0;
+  padding: 0;
+}
+
+.pp-product-title {
+  font-family: "Cairo", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 1;
+  color: #161919;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pp-product-category {
+  font-family: "Cairo", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  font-style: normal;
+  line-height: 1;
+  color: #B2B3B9;
+}
+
+/* ── Detail cells ── */
+.pp-cell-vendor,
+.pp-cell-sku,
+.pp-cell-rating,
+.pp-cell-price {
+  text-align: center;
+  font-size: 16px;
+  line-height: normal;
+}
+
+.pp-cell-vendor {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: #000;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 100px;
+}
+
+.pp-cell-sku {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #000;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 120px;
+}
+
+.pp-cell-rating {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #000;
+  flex: 1;
+  white-space: nowrap;
+}
+
+.pp-rating-low {
+  color: #f11010;
+}
+
+.pp-cell-price {
+  font-family: "Roboto Mono", monospace;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 110%;
+  color: #222;
+  text-align: right;
+  flex: 1;
+  white-space: nowrap;
+}
+
+.pp-price-dec {
+  font-family: "Roboto Mono", monospace;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 110%;
+  color: #999;
+}
+
+/* ── Action buttons ── */
+.pp-cell-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  width: 100px;
+  flex-shrink: 0;
+}
+
+.pp-action-add {
+  display: flex;
+  width: 52px;
+  height: 27px;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 23px;
+  background: #242EDB;
+  border: none;
+  cursor: pointer;
+}
+
+.pp-action-add:hover {
+  opacity: 0.9;
+}
+
+.pp-action-more {
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+/* ── Empty state ── */
+.pp-empty {
+  padding: 60px 0;
+  text-align: center;
+  color: #b2b3b9;
+  font-family: "Cairo", sans-serif;
+  font-size: 16px;
+}
+
+/* ── Footer / Pagination ── */
+.pp-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 0;
+}
+
+.pp-shown {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: normal;
+  color: #333;
+  margin: 0;
+}
+
+.pp-shown-label {
+  color: #969b9f;
+}
+
+.pp-shown-value {
+  color: #333;
+}
+
+/* ── Pagination controls ── */
+.pp-pagination {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pp-page-arrow {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #b2b3b9;
+  padding: 0;
+  transition: color 0.15s;
+}
+
+.pp-page-arrow:hover:not(:disabled) {
+  color: #333;
+}
+
+.pp-page-arrow:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.pp-page-numbers {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pp-page-num {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  border: 1px solid #ececeb;
+  background: #fff;
+  box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.12);
+  font-family: "Cairo", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: normal;
+  color: #b2b3b9;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.15s;
+}
+
+.pp-page-num:hover:not(.pp-page-num--active) {
+  background: #f6f6f6;
+}
+
+.pp-page-num--active {
+  background: #4f56d3;
+  border-color: #4f56d3;
+  color: #fff;
+}
+

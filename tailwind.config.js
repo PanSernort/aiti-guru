@@ -4,8 +4,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#3B3BF9',
-        'primary-hover': '#2E2EC7',
+        primary: '#4F56D3',
+        'primary-hover': '#3E44B8',
+      },
+      fontFamily: {
+        cairo: ['Cairo', 'Noto Sans', 'sans-serif'],
+        'open-sans': ['Open Sans', 'sans-serif'],
+        'roboto-mono': ['Roboto Mono', 'monospace'],
+        roboto: ['Roboto', 'sans-serif'],
       },
     },
   },

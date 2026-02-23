@@ -64,12 +64,5 @@ export interface ProductsResponse {
   limit: number;
 }
 
-export interface NewProduct {
-  title: string;
-  price: string;
-  brand: string;
-  sku: string;
-}
-
 export type SortField = 'title' | 'price' | 'rating';
 export type SortOrder = 'asc' | 'desc';
